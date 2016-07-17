@@ -1,0 +1,3 @@
+cdpath=(. ~/learn ~/work ~/src/git ~/src/hg)
+
+# vim:ft=zsh

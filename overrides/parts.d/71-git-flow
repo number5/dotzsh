@@ -1,0 +1,3 @@
+#compdef git-flow
+
+source /usr/local/share/zsh/site-functions/git-flow-completion.zsh

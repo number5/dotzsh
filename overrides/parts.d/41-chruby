@@ -1,0 +1,6 @@
+# for chruby
+source /usr/local/share/chruby/chruby.sh
+
+chruby ruby-2.3.1
+
+# vim: ft=zsh

@@ -1,0 +1,5 @@
+# google cloud zsh completion
+pushd
+source /Users/bruce/google-cloud-sdk/path.zsh.inc
+source /Users/bruce/google-cloud-sdk/completion.zsh.inc
+popd

@@ -1,0 +1,334 @@
+#!/bin/bash
+# Bash wrappers for docker run commands
+
+
+#
+# Helper Functions
+#
+dcleanup(){
+	docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+	docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+del_stopped(){
+	local name=$1
+	local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
+
+	if [[ "$state" == "false" ]]; then
+		docker rm $name
+	fi
+}
+relies_on(){
+	local containers=$@
+
+	for container in $containers; do
+		local state=$(docker inspect --format "{{.State.Running}}" $container 2>/dev/null)
+
+		if [[ "$state" == "false" ]] || [[ "$state" == "" ]]; then
+			echo "$container is not running, starting it for you."
+			$container
+		fi
+	done
+}
+# creates an nginx config for a local route
+nginx_config(){
+	server=$1
+	route=$2
+
+	cat >${HOME}/.nginx/conf.d/${server}.conf <<-EOF
+	upstream ${server} { server ${route}; }
+	server {
+	server_name ${server};
+
+	location / {
+	proxy_pass  http://${server};
+	proxy_http_version 1.1;
+	proxy_set_header Upgrade \$http_upgrade;
+	proxy_set_header Connection "upgrade";
+	proxy_set_header Host \$http_host;
+	proxy_set_header X-Forwarded-Proto \$scheme;
+	proxy_set_header X-Forwarded-For \$remote_addr;
+	proxy_set_header X-Forwarded-Port \$server_port;
+	proxy_set_header X-Request-Start \$msec;
+}
+	}
+	EOF
+
+	# restart nginx
+	docker restart nginx
+
+	# add host to /etc/hosts
+	sudo hostess add $server 127.0.0.1
+
+	# open browser
+	browser-exec "http://${server}"
+}
+
+cadvisor(){
+	docker run -d \
+		--restart always \
+		-v /:/rootfs:ro \
+		-v /var/run:/var/run:rw \
+		-v /sys:/sys:ro  \
+		-v /var/lib/docker/:/var/lib/docker:ro \
+		-p 1234:9999 \
+		--name cadvisor \
+		google/cadvisor
+
+        open "http://$(docker-machine ip $DOCKER_MACHINE_NAME):9999"
+}
+
+docker_consul(){
+	del_stopped consul
+
+	# check if we passed args and if consul is running
+	local args=$@
+	local state=$(docker inspect --format "{{.State.Running}}" consul 2>/dev/null)
+	if [[ "$state" == "true" ]] && [[ ! -z "$args" ]]; then
+		docker exec -it consul consul "$@"
+		return 0
+	fi
+
+	docker run -d \
+		--restart always \
+		-v $HOME/.consul:/etc/consul.d \
+		-v /var/run/docker.sock:/var/run/docker.sock \
+		--net host \
+		-e GOMAXPROCS=2 \
+		--name consul \
+		jess/consul agent \
+		-bootstrap-expect 1 \
+		-config-dir /etc/consul.d \
+		-data-dir /data \
+		-encrypt $(docker run --rm jess/consul keygen) \
+		-ui-dir /usr/src/consul \
+		-server \
+		-dc neverland \
+		-bind 0.0.0.0
+
+	sudo hostess add consul $(docker inspect --format "{{.NetworkSettings.IPAddress}}" consul)
+	browser-exec "http://consul:8500"
+}
+
+gcalcli(){
+	docker run --rm -it \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v $HOME/.gcalcli/home:/home/gcalcli/home \
+		-v $HOME/.gcalcli/work/oauth:/home/gcalcli/.gcalcli_oauth \
+		-v $HOME/.gcalcli/work/gcalclirc:/home/gcalcli/.gcalclirc \
+		--name gcalcli \
+		jess/gcalcli "$@"
+}
+
+
+
+lpass(){
+	docker run --rm -it \
+		-v $HOME/.lpass:/root/.lpass \
+		--name lpass \
+		jess/lpass "$@"
+}
+
+
+
+pivman(){
+	del_stopped pivman
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-e DISPLAY=unix$DISPLAY \
+		--device /dev/bus/usb \
+		--device /dev/usb \
+		--name pivman \
+		jess/pivman
+}
+
+privoxy(){
+	del_stopped privoxy
+	relies_on torproxy
+
+	docker run -d \
+		--restart always \
+		--link torproxy:torproxy \
+		-v /etc/localtime:/etc/localtime:ro \
+		-p 8118:8118 \
+		--name privoxy \
+		jess/privoxy
+
+	sudo hostess add privoxy $(docker inspect --format "{{.NetworkSettings.IPAddress}}" privoxy)
+}
+pulseaudio(){
+	del_stopped pulseaudio
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		--device /dev/snd \
+		-p 4713:4713 \
+		--restart always \
+		--name pulseaudio \
+		jess/pulseaudio
+}
+rainbowstream(){
+	docker run -it --rm \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v $HOME/.rainbow_oauth:/root/.rainbow_oauth \
+		-v $HOME/.rainbow_config.json:/root/.rainbow_config.json \
+		--name rainbowstream \
+		jess/rainbowstream
+}
+registrator(){
+	del_stopped registrator
+
+	docker run -d --restart always \
+		-v /var/run/docker.sock:/tmp/docker.sock \
+		--net host \
+		--name registrator \
+		gliderlabs/registrator consul:
+}
+
+ricochet(){
+	del_stopped ricochet
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-e DISPLAY=unix$DISPLAY \
+		-e GDK_SCALE \
+		-e GDK_DPI_SCALE \
+		-e QT_DEVICE_PIXEL_RATIO \
+		--device /dev/dri \
+		--name ricochet \
+		jess/ricochet
+}
+
+
+slack(){
+	del_stopped slack
+
+	docker run --rm -it \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-e DISPLAY=unix$DISPLAY \
+		--device /dev/snd \
+		--name slack \
+		jess/slack
+}
+
+
+
+telnet(){
+	docker run -it --rm \
+		--log-driver none \
+		jess/telnet "$@"
+}
+
+tor(){
+	del_stopped tor
+
+	docker run -d \
+		--net host \
+		--name tor \
+		jess/tor
+
+	# set up the redirect iptables rules
+	sudo setup-tor-iptables
+
+	# validate we are running through tor
+	browser-exec "https://check.torproject.org/"
+}
+torbrowser(){
+	del_stopped torbrowser
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		-e DISPLAY=unix$DISPLAY \
+		-e GDK_SCALE \
+		-e GDK_DPI_SCALE \
+		--device /dev/snd \
+		--name torbrowser \
+		jess/tor-browser
+
+	# exit current shell
+	exit 0
+}
+torproxy(){
+	del_stopped torproxy
+
+	docker run -d \
+		--restart always \
+		-v /etc/localtime:/etc/localtime:ro \
+		-p 9050:9050 \
+		--name torproxy \
+		jess/tor-proxy
+
+	sudo hostess add torproxy $(docker inspect --format "{{.NetworkSettings.IPAddress}}" torproxy)
+}
+traceroute(){
+	docker run --rm -it \
+		--net host \
+		jess/traceroute "$@"
+}
+
+
+watchman(){
+	del_stopped watchman
+
+	docker run -d \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v $HOME/Downloads:/root/Downloads \
+		--name watchman \
+		jess/watchman --foreground
+}
+
+ykpersonalize(){
+	del_stopped ykpersonalize
+
+	docker run --rm -it \
+		-v /etc/localtime:/etc/localtime:ro \
+		--device /dev/usb \
+		--device /dev/bus/usb \
+		--name ykpersonalize \
+		jess/ykpersonalize bash
+}
+yubico_piv_tool(){
+	del_stopped yubico-piv-tool
+
+	docker run --rm -it \
+		-v /etc/localtime:/etc/localtime:ro \
+		--device /dev/usb \
+		--device /dev/bus/usb \
+		--name yubico-piv-tool \
+		jess/yubico-piv-tool bash
+}
+alias yubico-piv-tool="yubico_piv_tool"
+
+
+###
+### Awesome sauce by @jpetazzo
+###
+command_not_found_handle () {
+	# Check if there is a container image with that name
+	if ! docker inspect --format '{{ .Author }}' "$1" >&/dev/null ; then
+		echo "$0: $1: command not found"
+		return
+	fi
+
+	# Check that it's really the name of the image, not a prefix
+	if docker inspect --format '{{ .Id }}' "$1" | grep -q "^$1" ; then
+		echo "$0: $1: command not found"
+		return
+	fi
+
+	docker run -ti -u $(whoami) -w "$HOME" \
+		$(env | cut -d= -f1 | awk '{print "-e", $1}') \
+		--device /dev/snd \
+		-v /etc/passwd:/etc/passwd:ro \
+		-v /etc/group:/etc/group:ro \
+		-v /etc/localtime:/etc/localtime:ro \
+		-v /home:/home \
+		-v /tmp/.X11-unix:/tmp/.X11-unix \
+		"jess/$@"
+}
+
+# vim: ft=zsh

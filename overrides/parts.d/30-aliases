@@ -1,0 +1,79 @@
+
+
+# virtualenv/ venv
+alias va='. venv/bin/activate'
+alias pi='./venv/bin/pip'
+
+#alias ack='ack-grep'
+#alias tag='git describe --abbrev=0'
+alias gbm='git branch --merged'
+alias gfc='git fetch origin'
+alias gpull='git pull --rebase'
+alias gds="git diff --stat"
+alias gl="git log --graph --pretty=format:'%C(magenta)%h%Creset %w(72,1,2)%Cgreen(%cr) -%C(bold green)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gr='git remote -v'
+alias s="git status"
+alias gs="git status --short"
+alias igu='iconv -f gb18030 -t utf8'
+alias rmpyc='zargs **/*.pyc -- rm'
+alias rmorig='zargs **/*.orig -- rm'
+alias vi='TERM=xterm-256color mvim -v'
+alias vim='vi'
+
+#alias mv='nocorrect mv'
+alias cp='nocorrect cp'
+alias ln='nocorrect ln'
+alias mkdir='nocorrect mkdir'
+alias rm='nocorrect rm'
+alias find='noglob find'
+alias w3m='noglob w3m -no-mouse'
+alias wget='noglob wget'
+alias curl='noglob curl'
+alias locate='noglob locate'
+
+alias ls='ls -G'
+
+alias ll='ls -l'
+alias l=ll
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls -lt'
+alias lrt='ls -lrt'
+alias lat='ls -lat'
+alias lart='ls -lart'
+
+
+
+alias tf='tail -f'
+
+alias sensible-pager='less'
+
+alias px='ps aux'
+alias mps='ps -ao user,pcpu,start,command'
+
+function of() { lsof -np "$1" }
+compdef _pids of
+
+function psgrep() { ps aux | grep "[${1[1]}]${1[2,-1]}" }
+
+
+#
+# Will return the current branch name
+# Usage example: git pull origin $(current_branch)
+#
+function current_branch() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  echo ${ref#refs/heads/}
+}
+
+# these aliases take advantage of the previous function
+alias gpush='git push -u origin $(current_branch)'
+alias gpj='git push origin HEAD:refs/heads/jenkins '
+
+
+alias ':wq'='echo "You are not in vim, dummy"'
+
+# remove aliases conflict with command
+#unalias gb
+
+# vim:ft=zsh
