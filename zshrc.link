@@ -1,0 +1,25 @@
+#!/usr/bin/zsh
+
+# zmodload zsh/zprof && zprof
+
+ZDOTDIR=~/.zsh/
+
+# Antibody
+source <(/usr/local/bin/antibody init)
+
+PURE_PROMPT_SYMBOL=λ
+PURE_GIT_PULL=0
+
+antibody bundle <<EOF
+mafredri/zsh-async # pure deps
+sindresorhus/pure
+t413/zsh-background-notify
+seebi/dircolors-solarized
+chrissicool/zsh-256color
+rupa/z
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+EOF
+
+source $ZDOTDIR/run_rcs

@@ -12,7 +12,7 @@ sourcedir() {
     done
 }
 
-sourcedir ${0:a:h}/parts.d
+sourcedir ${0:a:h}/rcfiles.d
 
 unsetopt NULL_GLOB
 # vim:ft=zsh
