@@ -1,4 +1,7 @@
 
+autoload colors
+autoload zmv
+autoload zargs
 # allow zwc file recompiling
 autoload -U zrecompile
 

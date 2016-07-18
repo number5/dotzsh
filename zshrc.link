@@ -2,7 +2,7 @@
 
 # zmodload zsh/zprof && zprof
 
-ZDOTDIR=~/.zsh/
+ZHOME=~/.zsh/
 
 # Antibody
 source <(/usr/local/bin/antibody init)
@@ -13,6 +13,7 @@ PURE_GIT_PULL=0
 antibody bundle <<EOF
 mafredri/zsh-async # pure deps
 sindresorhus/pure
+djui/alias-tips
 t413/zsh-background-notify
 seebi/dircolors-solarized
 chrissicool/zsh-256color
@@ -22,4 +23,7 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 EOF
 
-source $ZDOTDIR/run_rcs
+source $ZHOME/run_rcs
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
