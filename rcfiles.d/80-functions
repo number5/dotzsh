@@ -1,0 +1,8 @@
+# my functions
+
+function remote {
+    ssh -vAt "$1" 'tmux atta || tmux'
+}
+
+# vi:ft=zsh
+
