@@ -14,8 +14,10 @@ export LC_CTYPE=$LANG
 
 
 ## compl style
-#zstyle ':completion:*' menu select=6 
-
+zstyle ':completion:*' menu select=6 
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 
 
 # vi: ft=zsh
