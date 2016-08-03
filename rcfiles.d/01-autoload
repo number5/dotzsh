@@ -6,7 +6,7 @@ autoload zargs
 autoload -U zrecompile
 
 autoload -U complist
-autoload -U compinit; compinit
+autoload -U compinit; compinit -u
 
 autoload -Uz add-zsh-hook
 # vim:ft=zsh

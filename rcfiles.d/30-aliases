@@ -12,8 +12,8 @@ alias gpull='git pull --rebase'
 alias gds="git diff --stat"
 alias gl="git log --graph --pretty=format:'%C(magenta)%h%Creset %w(72,1,2)%Cgreen(%cr) -%C(bold green)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gr='git remote -v'
-alias s="git status"
-alias gs="git status --short"
+alias s="git status --short"
+alias gs="git status"
 alias igu='iconv -f gb18030 -t utf8'
 alias rmpyc='zargs **/*.pyc -- rm'
 alias rmorig='zargs **/*.orig -- rm'
