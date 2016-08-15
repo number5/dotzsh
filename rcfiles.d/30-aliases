@@ -1,4 +1,6 @@
 
+alias j=jrnl
+alias jn='jrnl -n 7'
 
 # virtualenv/ venv
 alias va='. venv/bin/activate'

@@ -1,0 +1,8 @@
+# miniconda
+
+setopt ALL_EXPORT
+
+PATH=~/miniconda3/bin:$PATH
+
+
+# vi:ft=zsh
