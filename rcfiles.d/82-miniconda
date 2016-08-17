@@ -1,10 +1,20 @@
 # miniconda
 
-setopt ALL_EXPORT
 
-PATH=~/miniconda3/bin:$PATH
+CONDA_HOME=~/miniconda3/
+
+condaon () {
+    path+=($CONDA_HOME/bin)
+    export PATH
+    export CONDA=ON
+}
+
+condaoff () {
+    path=("${(@)path:#$CONDA_HOME/bin}")
+    export PATH
+    export CONDA=OFF
+}
 
 
-unsetopt ALL_EXPORT
 
 # vi:ft=zsh
