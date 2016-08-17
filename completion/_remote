@@ -1,0 +1,10 @@
+#compdef remote
+
+_remote () {
+
+  service=ssh
+  declare -f _ssh >& /dev/null && _ssh
+}
+
+# make sure we actually attempt to complete on the first "tab" from the user
+_ssh

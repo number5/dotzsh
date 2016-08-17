@@ -5,4 +5,6 @@ setopt ALL_EXPORT
 PATH=~/miniconda3/bin:$PATH
 
 
+unsetopt ALL_EXPORT
+
 # vi:ft=zsh

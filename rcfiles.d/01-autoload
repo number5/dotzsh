@@ -5,6 +5,7 @@ autoload zargs
 # allow zwc file recompiling
 autoload -U zrecompile
 
+fpath+=(~/.zsh/completion)
 autoload -U complist
 autoload -U compinit; compinit -u
 
