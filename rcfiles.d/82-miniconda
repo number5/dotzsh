@@ -1,20 +1,22 @@
 # miniconda
 
 
-CONDA_HOME=~/miniconda3/
+CONDA_HOME=~/miniconda3
 
 condaon () {
-    path+=($CONDA_HOME/bin)
+    typeset -gU path
+    path=("$CONDA_HOME/bin" $path)
     export PATH
     export CONDA=ON
 }
 
 condaoff () {
+    source deactivate 2>/dev/null
+    typeset -gU path
     path=("${(@)path:#$CONDA_HOME/bin}")
+    path=("/usr/loca/bin" $path)
     export PATH
     export CONDA=OFF
 }
-
-
 
 # vi:ft=zsh
