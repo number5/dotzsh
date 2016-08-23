@@ -10,8 +10,9 @@ source <(/usr/local/bin/antibody init)
 PURE_PROMPT_SYMBOL=λ
 PURE_GIT_PULL=0
 
+antibody bundle mafredri/zsh-async
+
 antibody bundle <<EOF
-mafredri/zsh-async # pure deps
 sindresorhus/pure
 djui/alias-tips
 t413/zsh-background-notify
