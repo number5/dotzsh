@@ -1,4 +1,8 @@
 
+# terraform
+alias tplan='terraform plan -refresh -out=plan.b'
+
+
 alias j=jrnl
 alias jn='jrnl -n 7'
 

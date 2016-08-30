@@ -1,0 +1,6 @@
+
+unalias run-help
+
+autoload -U run-help
+autoload run-help-git
+export HELPDIR=/usr/local/share/zsh/help/
