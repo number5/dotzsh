@@ -70,11 +70,11 @@ cadvisor(){
 		-v /var/run:/var/run:rw \
 		-v /sys:/sys:ro  \
 		-v /var/lib/docker/:/var/lib/docker:ro \
-		-p 1234:9999 \
+		-p 1234:8080 \
 		--name cadvisor \
 		google/cadvisor
 
-        open "http://$(docker-machine ip $DOCKER_MACHINE_NAME):9999"
+        open "http://$(docker-machine ip $DOCKER_MACHINE_NAME):1234"
 }
 
 docker_consul(){

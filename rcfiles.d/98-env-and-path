@@ -6,6 +6,8 @@ typeset -xU path PATH
 EDITOR=vim
 VISUAL=vim
 
+HOMEBREW_GITHUB_API_TOKEN=e9eaf43159c44a54745f51c7895a037ac97602a4
+
 # aws cli
 AWS_DEFAULT_REGION=ap-southeast-2
 

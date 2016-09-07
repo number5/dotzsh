@@ -10,8 +10,7 @@ alias jn='jrnl -n 7'
 alias va='. venv/bin/activate'
 alias pi='./venv/bin/pip'
 
-#alias ack='ack-grep'
-#alias tag='git describe --abbrev=0'
+alias gc='git gc'
 alias gbm='git branch --merged'
 alias gfc='git fetch origin'
 alias gpull='git pull --rebase'
@@ -20,11 +19,15 @@ alias gl="git log --graph --pretty=format:'%C(magenta)%h%Creset %w(72,1,2)%Cgree
 alias gr='git remote -v'
 alias s="git status --short"
 alias gs="git status"
+
+
+
 alias igu='iconv -f gb18030 -t utf8'
 alias rmpyc='zargs **/*.pyc -- rm'
 alias rmorig='zargs **/*.orig -- rm'
-alias vi='TERM=xterm-256color mvim -v'
-alias vim='vi'
+#alias vi='TERM=xterm-256color mvim -v'
+alias vi='nvim'
+alias vim='nvim'
 
 #alias mv='nocorrect mv'
 alias cp='nocorrect cp'
@@ -47,7 +50,6 @@ alias lt='ls -lt'
 alias lrt='ls -lrt'
 alias lat='ls -lat'
 alias lart='ls -lart'
-
 
 
 alias tf='tail -f'
