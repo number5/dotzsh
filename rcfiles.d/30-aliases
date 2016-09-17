@@ -26,8 +26,6 @@ alias igu='iconv -f gb18030 -t utf8'
 alias rmpyc='zargs **/*.pyc -- rm'
 alias rmorig='zargs **/*.orig -- rm'
 #alias vi='TERM=xterm-256color mvim -v'
-alias vi='nvim'
-alias vim='nvim'
 
 #alias mv='nocorrect mv'
 alias cp='nocorrect cp'
