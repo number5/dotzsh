@@ -109,25 +109,6 @@ docker_consul(){
 	browser-exec "http://consul:8500"
 }
 
-gcalcli(){
-	docker run --rm -it \
-		-v /etc/localtime:/etc/localtime:ro \
-		-v $HOME/.gcalcli/home:/home/gcalcli/home \
-		-v $HOME/.gcalcli/work/oauth:/home/gcalcli/.gcalcli_oauth \
-		-v $HOME/.gcalcli/work/gcalclirc:/home/gcalcli/.gcalclirc \
-		--name gcalcli \
-		jess/gcalcli "$@"
-}
-
-
-
-lpass(){
-	docker run --rm -it \
-		-v $HOME/.lpass:/root/.lpass \
-		--name lpass \
-		jess/lpass "$@"
-}
-
 
 
 pivman(){

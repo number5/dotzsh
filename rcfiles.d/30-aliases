@@ -1,4 +1,7 @@
 
+# ip on mac
+alias ip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
+
 # terraform
 alias tplan='terraform plan -refresh -out=plan.b'
 
