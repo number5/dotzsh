@@ -18,7 +18,7 @@ NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
 
 # Golang
 GOPATH=/Users/bruce/go
-path=($HOME/bin /usr/local/sbin /Users/bruce/.yarn-cache/.global/node_modules/.bin /usr/local/bin $GOPATH/bin $path)
+path=($HOME/bin /Users/bruce/.yarn-config/global/node_modules/.bin /usr/local/bin $GOPATH/bin $path)
 
 path=(
     # allow directories only (-/)

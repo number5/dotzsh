@@ -21,7 +21,6 @@ chrissicool/zsh-256color
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
-b4b4r07/emoji-cli
 EOF
 
 source $ZHOME/run_rcs
