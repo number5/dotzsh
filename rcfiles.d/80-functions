@@ -1,7 +1,7 @@
 # my functions
 
 function remote {
-    ssh -At "$@" 'tmux atta || tmux'
+    ssh -At "$@" 'tmux atta -t bruce || tmux new -s bruce'
 }
 
 function vi {

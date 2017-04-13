@@ -26,7 +26,7 @@ EOF
 source $ZHOME/run_rcs
 
 # fzf 
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
 
