@@ -15,7 +15,6 @@ antibody bundle mafredri/zsh-async
 antibody bundle <<EOF
 sindresorhus/pure
 djui/alias-tips
-t413/zsh-background-notify
 seebi/dircolors-solarized
 chrissicool/zsh-256color
 zsh-users/zsh-completions
@@ -23,10 +22,12 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 EOF
 
+source /Users/bruce/src/git/zsh-background-notify/bgnotify.plugin.zsh
+# t413/zsh-background-notify
 source $ZHOME/run_rcs
 
 # fzf 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --no-messages'
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
 
@@ -35,7 +36,8 @@ export FZF_COMPLETION_OPTS='+c -x'
 # - Note that ag only lists files not directories
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  ag -g "" "$1"
+  rg -g "" "$1"
 }
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
