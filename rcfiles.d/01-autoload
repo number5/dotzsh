@@ -10,4 +10,6 @@ autoload -U complist
 autoload -U compinit; compinit -u
 
 autoload -Uz add-zsh-hook
+
+MAILCHECK=0
 # vim:ft=zsh
