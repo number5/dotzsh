@@ -16,5 +16,9 @@ function clear_badge {
     printf "\e]1337;SetBadgeFormat=%s\a" $(echo 'λ' |base64)
 }
 
+function pretty {
+    pygmentize -g -f terminal256 -O style=gruvbox_dark $@ |less -R
+}
+
 # vi:ft=zsh
 
