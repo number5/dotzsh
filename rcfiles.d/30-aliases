@@ -19,6 +19,7 @@ alias gfc='git fetch origin'
 alias gpull='git pull --rebase'
 alias gds="git diff --stat"
 alias gl="git log --graph --pretty=format:'%C(magenta)%h%Creset %w(72,1,2)%Cgreen(%cr) -%C(bold green)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+alias gt='git log --tags --decorate --simplify-by-decoration --oneline'
 alias gr='git remote -v'
 alias s="git status --short"
 alias gs="git status"
@@ -41,16 +42,16 @@ alias wget='noglob wget'
 alias curl='noglob curl'
 alias locate='noglob locate'
 
-alias ls='ls -G'
-
-alias ll='ls -l'
-alias l=ll
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls -lt'
-alias lrt='ls -lrt'
-alias lat='ls -lat'
-alias lart='ls -lart'
+# ls
+alias ls='exa'
+alias l='exa'
+alias ll='exa -l'
+alias lll='exa -l | less'
+alias lla='exa -la'
+alias lrt='exa -ls modified'
+alias llt='exa -T'
+alias llfu='exa -bghHliS --git'
+alias tree='exa -T'
 
 
 alias tf='tail -f'
