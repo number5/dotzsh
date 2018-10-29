@@ -6,5 +6,5 @@ source <(kops completion zsh)
 
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/Cellar/tfenv/0.6.0/versions/0.11.8/terraform terraform
+complete -o nospace -C /usr/local/bin/terraform terraform
 
