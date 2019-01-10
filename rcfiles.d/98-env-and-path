@@ -18,7 +18,7 @@ NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules:$HOME/.config/yarn/global/node_
 
 # Golang
 GOPATH=/Users/bruce/go
-path=($HOME/bin $HOME/.config/yarn/global/node_modules/.bin /usr/local/bin $GOPATH/bin $path)
+path=($HOME/bin $HOME/.config/yarn/global/node_modules/.bin /usr/local/lib/ruby/gems/2.5.0/bin /usr/local/bin $GOPATH/bin $path)
 
 path=(
     # allow directories only (-/)
