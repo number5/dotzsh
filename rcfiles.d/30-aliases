@@ -83,6 +83,5 @@ alias gpush='git push -u origin $(current_branch)'
 alias ':wq'='echo "You are not in vim, dummy"'
 
 alias d='dig +short'
-alias meld=/Applications/Meld.app/Contents/MacOS/Meld
 
 # vim:ft=zsh
