@@ -15,7 +15,4 @@ setopt autopushd pushdsilent pushdtohome
 ## Remove duplicate entries
 setopt pushdignoredups
 
-## This reverts the +/- operators.
-setopt pushdminus
-
 # vim: ft=zsh
