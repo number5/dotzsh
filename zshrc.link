@@ -30,17 +30,25 @@ source /Users/bruce/src/git/zsh-background-notify/bgnotify.plugin.zsh
 source $ZHOME/run_rcs
 
 # fzf 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*" --no-messages'
+export FZF_DEFAULT_COMMAND='fd --type f'
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
 
-# Use ag instead of the default find command for listing candidates.
-# - The first argument to the function is the base path to start traversal
-# - Note that ag only lists files not directories
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  rg -g "" "$1"
+  fd --hidden --follow --exclude ".git" . "$1"
 }
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
