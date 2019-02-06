@@ -79,9 +79,9 @@ function current_branch() {
 # these aliases take advantage of the previous function
 alias gpush='git push -u origin $(current_branch)'
 
-
 alias ':wq'='echo "You are not in vim, dummy"'
-
 alias d='dig +short'
 
+alias cat='bat'
+alias less='bat'
 # vim:ft=zsh
