@@ -43,13 +43,13 @@ alias curl='noglob curl'
 alias locate='noglob locate'
 
 # ls
-alias ls='exa'
-alias l='exa'
-alias ll='exa -l'
-alias lll='exa -l | less'
-alias lla='exa -la'
-alias lrt='exa -ls modified'
-alias llt='exa -T'
+alias ls='exa --group-directories-first --classify --git'
+alias l='ls'
+alias ll='ls -l'
+alias lll='ls -l | less'
+alias lla='ls -la'
+alias lrt='ls -ls modified'
+alias llt='ls -T'
 alias llfu='exa -bghHliS --git'
 alias tree='exa -T'
 
@@ -84,4 +84,8 @@ alias d='dig +short'
 
 alias cat='bat'
 alias less='bat'
+
+alias kk='kubectl'
+alias kd='kubectl describe'
+alias kn='kubens'
 # vim:ft=zsh
