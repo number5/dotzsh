@@ -1,0 +1,6 @@
+#! /usr/bin/env zsh
+
+source /usr/local/opt/asdf/asdf.sh
+
+
+

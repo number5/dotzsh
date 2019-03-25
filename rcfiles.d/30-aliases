@@ -22,6 +22,7 @@ alias gl="git log --graph --pretty=format:'%C(magenta)%h%Creset %w(72,1,2)%Cgree
 alias gt='git log --tags --decorate --simplify-by-decoration --oneline'
 alias gr='git remote -v'
 alias s="git status --short"
+alias ss="s"  # because bad mbp keyboard
 alias gs="git status"
 
 

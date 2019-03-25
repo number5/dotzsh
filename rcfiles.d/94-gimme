@@ -1,0 +1,4 @@
+
+eval "$(gimme 1.12.1)"
+
+export GOPATH=/Users/bruce/go
