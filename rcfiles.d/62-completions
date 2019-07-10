@@ -8,3 +8,5 @@ source <(kops completion zsh)
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
+source  <(pip3 completion --zsh)
+

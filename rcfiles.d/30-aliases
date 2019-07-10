@@ -89,4 +89,5 @@ alias less='bat'
 alias kk='kubectl'
 alias kd='kubectl describe'
 alias kn='kubens'
+alias kx='kubectx'
 # vim:ft=zsh
