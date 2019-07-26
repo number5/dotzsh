@@ -1,5 +1,10 @@
 # my functions
 
+function gp {
+  pass=$(gopass ls -f | fzf +m) &&
+	gopass -c "$pass"
+}
+
 function remote {
     ssh -At "$@" 'tmux atta -t bruce || tmux new -s bruce'
 }

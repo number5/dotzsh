@@ -10,10 +10,12 @@ source <(/usr/local/bin/antibody init)
 PURE_PROMPT_SYMBOL=λ
 PURE_GIT_PULL=0
 
+
 antibody bundle mafredri/zsh-async
 
+# sindresorhus/pure
+#
 antibody bundle <<EOF
-sindresorhus/pure
 djui/alias-tips
 seebi/dircolors-solarized
 chrissicool/zsh-256color
@@ -21,6 +23,7 @@ zdharma/fast-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
+romkatv/powerlevel10k 
 EOF
 
 # zsh-users/zsh-syntax-highlighting
@@ -52,3 +55,4 @@ _fzf_compgen_dir() {
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/.zsh/p10k-pure.zsh

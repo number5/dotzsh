@@ -1,4 +1,4 @@
 
-eval "$(gimme 1.12.6)"
+eval "$(gimme 1.12.7)"
 
 export GOPATH=/Users/bruce/go

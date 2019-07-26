@@ -7,9 +7,10 @@ EDITOR=vi
 VISUAL=vi
 
 GOPASS_GPG_OPTS='--homedir /Users/bruce/.pass_gpg'
+GPG_TTY=$(tty)
 
 # aws cli
-AWS_DEFAULT_REGION=ap-southeast-2
+AWS_DEFAULT_REGION=us-west-2
 
 # TERM
 TERM=${TERM:-xterm-256color}
