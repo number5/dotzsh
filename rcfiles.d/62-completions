@@ -2,11 +2,12 @@
 source /usr/local/bin/aws_zsh_completer.sh
 
 # compdef kops
-source <(kops completion zsh)
+eval $(kops completion zsh)
 
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
-source  <(pip3 completion --zsh)
+eval $(pip3 completion --zsh)
 
+eval $(gopass completion zsh)
