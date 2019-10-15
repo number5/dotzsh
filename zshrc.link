@@ -14,7 +14,7 @@ antibody bundle mafredri/zsh-async
 
 #
 antibody bundle <<EOF
-MichaelAquilina/zsh-you-should-use
+djui/alias-tips
 seebi/dircolors-solarized
 chrissicool/zsh-256color
 zdharma/fast-syntax-highlighting
