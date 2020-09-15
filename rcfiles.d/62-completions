@@ -1,5 +1,5 @@
 # compdef awscli
-source /usr/local/bin/aws_zsh_completer.sh
+#source /usr/local/bin/aws_zsh_completer.sh
 
 # compdef kops
 eval $(kops completion zsh)
@@ -11,3 +11,5 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 eval $(pip3 completion --zsh)
 
 eval $(gopass completion zsh)
+
+#eval $(gotk completion)

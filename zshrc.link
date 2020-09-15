@@ -29,7 +29,7 @@ source /Users/bruce/src/git/zsh-background-notify/bgnotify.plugin.zsh
 # t413/zsh-background-notify
 source $ZHOME/run_rcs
 
-# fzf 
+# fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
 # Options to fzf command
 export FZF_COMPLETION_OPTS='+c -x'
@@ -52,3 +52,18 @@ _fzf_compgen_dir() {
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/usr/local/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/usr/local/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/usr/local/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/usr/local/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
