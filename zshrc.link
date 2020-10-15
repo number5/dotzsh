@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-# zmodload zsh/zprof && zprof
+#zmodload zsh/zprof
 
 ZHOME=~/.zsh/
 
@@ -67,3 +67,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 #fi
 #unset __conda_setup
 # <<< conda initialize <<<
+
+# profiling zsh startup
+#zprof
