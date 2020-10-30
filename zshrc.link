@@ -14,12 +14,12 @@ antibody bundle mafredri/zsh-async
 
 #
 antibody bundle <<EOF
+zsh-users/zsh-completions
+Aloxaf/fzf-tab
 djui/alias-tips
-seebi/dircolors-solarized
 chrissicool/zsh-256color
 zdharma/fast-syntax-highlighting
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 sindresorhus/pure
 paulirish/git-open
