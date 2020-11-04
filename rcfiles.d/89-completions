@@ -1,5 +1,3 @@
-# compdef awscli
-#source /usr/local/bin/aws_zsh_completer.sh
 
 # compdef kops
 eval $(kops completion zsh)
