@@ -1,11 +1,18 @@
 # my functions
 
 function gp {
-  pass=$(gopass ls -f | fzf +m) &&
-	gopass -c "$pass"
+  QUERY=$1
+  if [ -z "$QUERY" ]; then
+    QUERY=''
+  fi
+  gopass show -C \
+    $(gopass ls --flat \
+      | fzf -q "$QUERY" --preview "gopass show {}" \
+    )
 }
 
 function remote {
+    export TERM=xterm-256color
     ssh -At "$@" 'tmux atta -t bruce || tmux new -s bruce'
 }
 
@@ -22,4 +29,3 @@ function clear_badge {
 }
 
 # vi:ft=zsh
-
