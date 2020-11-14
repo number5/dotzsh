@@ -4,28 +4,40 @@
 
 ZHOME=~/.zsh/
 
-# Antibody
-source <(/usr/local/bin/antibody init)
-
 PURE_PROMPT_SYMBOL=λ
 PURE_GIT_PULL=0
 
-antibody bundle mafredri/zsh-async
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
-#
-antibody bundle <<EOF
-zsh-users/zsh-completions
-Aloxaf/fzf-tab
-djui/alias-tips
-chrissicool/zsh-256color
-zdharma/fast-syntax-highlighting
-zsh-users/zsh-autosuggestions
-zsh-users/zsh-history-substring-search
-sindresorhus/pure
-paulirish/git-open
-EOF
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
 
-source /Users/bruce/src/git/zsh-background-notify/bgnotify.plugin.zsh
+
+zinit light Aloxaf/fzf-tab
+zinit light djui/alias-tips
+zinit light chrissicool/zsh-256color
+zinit light zsh-users/zsh-history-substring-search
+zinit light paulirish/git-open
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" \
+      zdharma/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+      zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+      zsh-users/zsh-completions
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit load sindresorhus/pure
+
+zinit light /Users/bruce/src/git/zsh-background-notify/bgnotify.plugin.zsh
 # t413/zsh-background-notify
 source $ZHOME/run_rcs
 
@@ -52,6 +64,7 @@ _fzf_compgen_dir() {
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 
 # profiling zsh startup
