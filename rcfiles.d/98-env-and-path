@@ -1,10 +1,10 @@
 #! /bin/zsh
 
 setopt ALL_EXPORT
-typeset -xU path PATH 
+typeset -xU path PATH
 # editor
-EDITOR=vi
-VISUAL=vi
+EDITOR=nvim
+VISUAL=nvim
 
 GOPASS_GPG_OPTS='--homedir /Users/bruce/.pass_gpg'
 GPG_TTY=$(tty)

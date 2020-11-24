@@ -4,7 +4,6 @@ if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
 
-
 #
 # Browser
 #
@@ -17,8 +16,8 @@ fi
 # Editors
 #
 
-export EDITOR='vi'
-export VISUAL='vi'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='bat'
 
 #
