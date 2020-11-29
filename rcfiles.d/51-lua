@@ -1,3 +1,0 @@
-function activate-torch {
-. /Users/bruce/src/git/torch/install/bin/torch-activate
-}
