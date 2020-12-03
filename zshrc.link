@@ -21,34 +21,11 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-# Terraform
-autoload -U +X bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-complete -o nospace -C /usr/local/bin/terraform terraform
-
-zinit wait lucid id-as=pip3 as="completion" \
-  atclone="pip3 completion --zsh > pip3.gen.zsh" \
-  atpull="%atclone" pick="pip3.gen.zsh" for \
-      zdharma/null
-zinit wait lucid id-as=gopass as="completion" \
-  atclone="gopass completion zsh > gopass.gen.zsh" \
-  atpull="%atclone" pick="gopass.gen.zsh" for \
-      zdharma/null
-zinit wait lucid id-as=gotk as="completion" \
-  atclone="gotk completion zsh > gotk.gen.zsh" \
-  atpull="%atclone" pick="gotk.gen.zsh" for \
-      zdharma/null
-zinit wait lucid id-as=kops as="completion" \
-  atclone="kops completion zsh > kops.gen.zsh" \
-  atpull="%atclone" pick="kops.gen.zsh" for \
-      zdharma/null
-
 zinit light Aloxaf/fzf-tab
 zinit light djui/alias-tips
 zinit light chrissicool/zsh-256color
 zinit light zsh-users/zsh-history-substring-search
 zinit light paulirish/git-open
-#zinit light /Users/bruce/src/git/zsh-background-notify/bgnotify.plugin.zsh
 zinit light MichaelAquilina/zsh-auto-notify
 
 # t413/zsh-background-notify
@@ -60,19 +37,35 @@ for f in "${ZHOME}/snippets"/*~(*~)(n); do
 done
 unsetopt NULL_GLOB
 
-zinit wait as"none" \
-  id-as"local-plugins" nocompile \
-  atpull"zinit creinstall -q ${ZHOME}/completions" \
-  run-atpull \
-for zdharma/null
-zinit creinstall -q /usr/local/share/zsh/site-functions/
+# completions
+
 zinit wait lucid light-mode for \
   atinit"zicompinit; zicdreplay" \
       zdharma/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
       zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
-      zsh-users/zsh-completions
+      zsh-users/zsh-completions \
+  has"pip3" id-as"pip3-completion" as"completion" \
+  atclone"pip3 completion --zsh > pip3.gen.zsh" \
+  atpull"%atclone" run-atpull \
+      zdharma/null \
+  has"gotk" id-as="gotk-completion" as="completion" \
+  atclone="gotk completion zsh > _gotk" \
+  atpull="%atclone" run-atpull \
+      zdharma/null \
+  has"kops" id-as="kops-completion" as="completion" \
+  atclone="kops completion zsh > _kops" \
+  atpull="%atclone" run-atpull \
+      zdharma/null
+
+zinit creinstall -q ${ZHOME}/completions
+zicompinit
+zicdreplay
+
+# Terraform
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
 
 zinit ice pick"async.zsh" src"pure.zsh"
 zinit load sindresorhus/pure
