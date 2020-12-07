@@ -21,14 +21,48 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
+#################################################################
+# PROMPT SETTINGS
+#
+# This settings are applied immidiately (because we need to show
+# prompt as fast as possible), so the plugins are being loaded
+# eagerly.
+#
+
+# Python virtual environment name
+#AGKOZAK_CUSTOM_PROMPT='%(10V.%B%F{green}(%10v)%f%b.)'
+# Username and hostname
+#AGKOZAK_CUSTOM_PROMPT+='%(!.%S%B.%B%F{yellow})%n%1v%(!.%b%s.%f%b) '
+# Path
+#AGKOZAK_CUSTOM_PROMPT+=$'%B%F{green}%2v%f%b '
+# Prompt character
+#AGKOZAK_CUSTOM_PROMPT+='%B%F{red}%(4V.:.%#)%f%b '
+# Git status
+AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
+AGKOZAK_CUSTOM_RPROMPT='%(3V.%F{yellow}%3v%f.)'
+# Exit status
+AGKOZAK_CUSTOM_RPROMPT+=' %(?..%B%F{red}(%?%)%f%b)'
+# Execution time
+AGKOZAK_CMD_EXEC_TIME=1
+AGKOZAK_CUSTOM_RPROMPT+=' %B%F{green}%9v%f%b'
+AGKOZAK_PROMPT_CHAR=( λ λ ❮ )
+AGKOZAK_COLORS_PROMPT_CHAR='magenta'
+AGKOZAK_USER_HOST_DISPLAY=0
+AGKOZAK_BLANK_LINES=1
+AGKOZAK_PROMPT_DIRTRIM=0
+
+zinit load romkatv/zsh-prompt-benchmark
+zinit load agkozak/agkozak-zsh-prompt
+
+# plugins
 zinit light Aloxaf/fzf-tab
 zinit light djui/alias-tips
 zinit light chrissicool/zsh-256color
 zinit light zsh-users/zsh-history-substring-search
 zinit light paulirish/git-open
-zinit light MichaelAquilina/zsh-auto-notify
+#zinit light MichaelAquilina/zsh-auto-notify
+zinit load marzocchi/zsh-notify
 
-# t413/zsh-background-notify
 #source $ZHOME/run_rcs
 setopt EXTENDED_GLOB NULL_GLOB
 for f in "${ZHOME}/snippets"/*~(*~)(n); do
@@ -39,36 +73,72 @@ unsetopt NULL_GLOB
 
 # completions
 
-zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" \
-      zdharma/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" \
-      zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
-      zsh-users/zsh-completions \
-  has"pip3" id-as"pip3-completion" as"completion" \
-  atclone"pip3 completion --zsh > pip3.gen.zsh" \
-  atpull"%atclone" run-atpull \
-      zdharma/null \
-  has"gotk" id-as="gotk-completion" as="completion" \
-  atclone="gotk completion zsh > _gotk" \
-  atpull="%atclone" run-atpull \
-      zdharma/null \
-  has"kops" id-as="kops-completion" as="completion" \
-  atclone="kops completion zsh > _kops" \
-  atpull="%atclone" run-atpull \
-      zdharma/null
-
-zinit creinstall -q ${ZHOME}/completions
-zicompinit
-zicdreplay
-
 # Terraform
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
 
-zinit ice pick"async.zsh" src"pure.zsh"
-zinit load sindresorhus/pure
+# Generate completions for
+# * pyenv     - python version management script
+# * poetry    - python package manager
+# * cargo     - rust package manager
+# * rustup    - rust toolchain installer
+# * restic    - backup tool
+# * pipx      - tool for installing isolated python packages
+# * terraform - cloud infrastructure management tool
+# * rclone    - rsync for the cloud (we check if genautocomplete subcommand is available)
+#
+zinit atpull'%atclone' for \
+    has'pyenv'  id-as'pyenv'  atclone"pyenv init - --no-rehash         > pyenv.plugin.zsh"    zdharma/null \
+    has'poetry' id-as'poetry' atclone"poetry completions zsh           > _poetry"             zdharma/null \
+    has'rustup' id-as'cargo'  atclone"rustup completions zsh cargo     > _cargo"              zdharma/null \
+    has'rustup' id-as'rustup' atclone"rustup completions zsh cargo     > _rustup"             zdharma/null \
+    has'restic' id-as'restic' atclone"restic generate --zsh-completion   _restic"             zdharma/null \
+    has'pipx'   id-as'pipx'   atclone"register-python-argcomplete pipx > pipx.plugin.zsh" \
+        has'register-python-argcomplete' zdharma/null \
+    has'terraform' id-as'terraform' \
+        atclone'<<<"complete -o nospace -C /usr/local/bin/terraform terraform" > terraform.plugin.zsh' zdharma/null \
+
+
+# Completions for
+# * git-flow
+# * nix package manager
+# * ansible
+#
+zinit for \
+    has'git-flow' bobthecow/git-flow-completion \
+    has'ansible'  nojanath/ansible-zsh-completion
+
+zinit creinstall -q ${ZHOME}/completions
+
+#################################################################
+# IMPORTANT PLUGINS
+#
+
+# Additional completion definitions
+zinit ice blockf #atclone'zinit creinstall -q .' atpull'%atclone'
+zinit load zsh-users/zsh-completions
+
+# History search by `Ctrl+R`
+#zinit load zdharma/history-search-multi-word
+
+# Syntax highlighting
+zinit ice atinit"zpcompinit; zpcdreplay"
+zinit load zdharma/fast-syntax-highlighting
+
+# # Autosuggestions
+# export ZSH_AUTOSUGGEST_USE_ASYNC=1
+export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+zinit ice blockf atload'!_zsh_autosuggest_start'
+zinit load zsh-users/zsh-autosuggestions
+
+
+# `...` ==> `../..`
+# zinit ice lucid wait"0b" pick"manydots-magic"
+zinit load lainiwa/zsh-manydots-magic
+
+
+# Pure Prompt
+#zinit ice pick"async.zsh" src"pure.zsh"
+#zinit load sindresorhus/pure
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
