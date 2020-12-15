@@ -39,12 +39,15 @@ autoload -Uz _zinit
 #AGKOZAK_CUSTOM_PROMPT+='%B%F{red}%(4V.:.%#)%f%b '
 # Git status
 AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
-AGKOZAK_CUSTOM_RPROMPT='%(3V.%F{yellow}%3v%f.)'
+AGKOZAK_CUSTOM_RPROMPT='%(3V.%F{yellow}${prompt_git_tag} %7v%f.)'
+#AGKOZAK_CUSTOM_RPROMPT='%(3V.%F{yellow}%3v%f.)'
 # Exit status
 AGKOZAK_CUSTOM_RPROMPT+=' %(?..%B%F{red}(%?%)%f%b)'
 # Execution time
 AGKOZAK_CMD_EXEC_TIME=1
 AGKOZAK_CUSTOM_RPROMPT+=' %B%F{green}%9v%f%b'
+# Display the time
+AGKOZAK_CUSTOM_RPROMPT+=' %F{033}%*'
 AGKOZAK_PROMPT_CHAR=( λ λ ❮ )
 AGKOZAK_COLORS_PROMPT_CHAR='magenta'
 AGKOZAK_USER_HOST_DISPLAY=0
