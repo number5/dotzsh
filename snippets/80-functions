@@ -1,14 +1,8 @@
 # my functions
-
 function gp {
-  QUERY=$1
-  if [ -z "$QUERY" ]; then
-    QUERY=''
-  fi
-  gopass show -C \
-    $(gopass ls --flat \
-      | fzf -q "$QUERY" --preview "gopass show {}" \
-    )
+    QUERY=$1
+    PICK=$(fd -t f --base-directory ~/.password-store |fzf -m -q $QUERY)
+    pass show ${PICK:r}
 }
 
 function remote {

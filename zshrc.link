@@ -171,7 +171,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(gimme 1.15)"
+eval "$(gimme 1.15.7)"
 
 export GOPATH=/Users/bruce/go
 

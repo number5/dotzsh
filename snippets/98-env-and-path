@@ -11,6 +11,8 @@ GPG_TTY=$(tty)
 
 # aws cli
 AWS_DEFAULT_REGION=us-west-2
+AWS_STS_REGIONAL_ENDPOINTS=regional
+AWS_REGION=ap-southeast-2
 
 # TERM
 TERM=${TERM:-xterm-256color}
