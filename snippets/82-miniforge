@@ -1,7 +1,7 @@
-# miniconda
+# miniconda/miniforge
 
 
-CONDA_HOME=/usr/local/miniconda3
+CONDA_HOME=/usr/local/Caskroom/miniforge/base
 
 condaon () {
     typeset -gU path
