@@ -17,10 +17,12 @@ AWS_REGION=ap-southeast-2
 # TERM
 TERM=${TERM:-xterm-256color}
 
+JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8-openj9.jdk/Contents/Home
+
 # node
 NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules:$HOME/.config/yarn/global/node_modules
 
-path=($HOME/bin $HOME/.local/bin $HOME/.cargo/bin $HOME/.config/yarn/global/node_modules/.bin /usr/local/lib/ruby/gems/2.5.0/bin /usr/local/bin $GOPATH/bin $HOME/.krew/bin $path)
+path=($HOME/bin $HOME/.local/bin $HOME/.cargo/bin $HOME/.config/yarn/global/node_modules/.bin  $JAVA_HOME/bin /usr/local/lib/ruby/gems/2.5.0/bin /usr/local/bin $GOPATH/bin $HOME/.krew/bin $path)
 
 path=(
     # allow directories only (-/)

@@ -91,7 +91,6 @@ autoload -U +X bashcompinit && bashcompinit
 # * restic    - backup tool
 # * pipx      - tool for installing isolated python packages
 # * terraform - cloud infrastructure management tool
-# * rclone    - rsync for the cloud (we check if genautocomplete subcommand is available)
 #
 zinit atpull'%atclone' for \
     has'pyenv'  id-as'pyenv'  atclone"pyenv init - --no-rehash         > pyenv.plugin.zsh"    zdharma/null \
@@ -171,9 +170,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(gimme 1.16.2)"
+eval "$(gimme 1.16.6)"
 
 export GOPATH=/Users/bruce/go
 
 # profiling zsh startup
 #zprof
+
+source /Users/bruce/Library/Application Support/org.dystroy.broot/launcher/bash/br

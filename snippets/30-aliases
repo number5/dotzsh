@@ -54,9 +54,6 @@ alias llt='ls -T'
 alias llfu='exa -bghHliS --git'
 alias tree='exa -T'
 
-
-alias tf='tail -f'
-
 alias sensible-pager='less'
 
 alias px='ps aux'
@@ -86,8 +83,11 @@ alias d='dig +short'
 alias cat='bat'
 alias less='bat'
 
+alias k='kubectl'
 alias kk='kubectl'
 alias kd='kubectl describe'
 alias kn='kubens'
 alias kx='kubectx'
+
+alias tf='terraform'
 # vim:ft=zsh

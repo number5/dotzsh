@@ -2,7 +2,7 @@
 function gp {
     QUERY=$1
     PICK=$(fd -t f --base-directory ~/.password-store |fzf -m -q $QUERY)
-    pass show ${PICK:r}
+    pass show -c -q ${PICK:r}
 }
 
 function remote {
