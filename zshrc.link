@@ -9,9 +9,9 @@ PURE_GIT_PULL=0
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
         pushd "$HOME/.zinit/bin" && \
         git checkout c27bf53f060d4584333ebdff8cfcd6aed60ca430 && \
         popd && \
@@ -93,15 +93,15 @@ autoload -U +X bashcompinit && bashcompinit
 # * terraform - cloud infrastructure management tool
 #
 zinit atpull'%atclone' for \
-    has'pyenv'  id-as'pyenv'  atclone"pyenv init - --no-rehash         > pyenv.plugin.zsh"    zdharma/null \
-    has'poetry' id-as'poetry' atclone"poetry completions zsh           > _poetry"             zdharma/null \
-    has'rustup' id-as'cargo'  atclone"rustup completions zsh cargo     > _cargo"              zdharma/null \
-    has'rustup' id-as'rustup' atclone"rustup completions zsh cargo     > _rustup"             zdharma/null \
-    has'restic' id-as'restic' atclone"restic generate --zsh-completion   _restic"             zdharma/null \
+    has'pyenv'  id-as'pyenv'  atclone"pyenv init - --no-rehash         > pyenv.plugin.zsh"    zdharma-continuum/null \
+    has'poetry' id-as'poetry' atclone"poetry completions zsh           > _poetry"             zdharma-continuum/null \
+    has'rustup' id-as'cargo'  atclone"rustup completions zsh cargo     > _cargo"              zdharma-continuum/null \
+    has'rustup' id-as'rustup' atclone"rustup completions zsh cargo     > _rustup"             zdharma-continuum/null \
+    has'restic' id-as'restic' atclone"restic generate --zsh-completion   _restic"             zdharma-continuum/null \
     has'pipx'   id-as'pipx'   atclone"register-python-argcomplete pipx > pipx.plugin.zsh" \
-        has'register-python-argcomplete' zdharma/null \
+        has'register-python-argcomplete' zdharma-continuum/null \
     has'terraform' id-as'terraform' \
-        atclone'<<<"complete -o nospace -C /usr/local/bin/terraform terraform" > terraform.plugin.zsh' zdharma/null \
+        atclone'<<<"complete -o nospace -C /usr/local/bin/terraform terraform" > terraform.plugin.zsh' zdharma-continuum/null \
 
 
 # Completions for
@@ -110,7 +110,6 @@ zinit atpull'%atclone' for \
 # * ansible
 #
 zinit for \
-    has'git-flow' bobthecow/git-flow-completion \
     has'ansible'  nojanath/ansible-zsh-completion
 
 zinit creinstall -q ${ZHOME}/completions
@@ -124,11 +123,11 @@ zinit ice blockf #atclone'zinit creinstall -q .' atpull'%atclone'
 zinit load zsh-users/zsh-completions
 
 # History search by `Ctrl+R`
-#zinit load zdharma/history-search-multi-word
+#zinit load zdharma-continuum/history-search-multi-word
 
 # Syntax highlighting
 zinit ice atinit"zpcompinit; zpcdreplay"
-zinit load zdharma/fast-syntax-highlighting
+zinit load zdharma-continuum/fast-syntax-highlighting
 
 # # Autosuggestions
 # export ZSH_AUTOSUGGEST_USE_ASYNC=1

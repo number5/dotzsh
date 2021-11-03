@@ -2,7 +2,13 @@
 function gp {
     QUERY=$1
     PICK=$(fd -t f --base-directory ~/.password-store |fzf -m -q $QUERY)
-    pass show -c -q ${PICK:r}
+    pass show --clip ${PICK:r}
+}
+
+function pqr {
+    QUERY=$1
+    PICK=$(fd -t f --base-directory ~/.password-store |fzf -m -q $QUERY)
+    pass show --qrcode ${PICK:r}
 }
 
 function remote {
