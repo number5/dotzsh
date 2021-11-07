@@ -6,7 +6,7 @@ typeset -xU path PATH
 EDITOR=nvim
 VISUAL=nvim
 
-GOPASS_GPG_OPTS='--homedir /Users/bruce/.pass_gpg'
+PASSWORD_STORE_GPG_OPTS="--homedir /Users/bruce/.pass_gpg"
 GPG_TTY=$(tty)
 
 # aws cli
