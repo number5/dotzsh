@@ -169,11 +169,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(gimme 1.16.6)"
+eval "$(gimme 1.17.3)"
 
-export GOPATH=/Users/bruce/go
+export GOPATH=/Users/bruce.wang/go
 
 # profiling zsh startup
 #zprof
 
-source /Users/bruce/Library/Application Support/org.dystroy.broot/launcher/bash/br
+source /Users/bruce.wang/.config/broot/launcher/bash/br
