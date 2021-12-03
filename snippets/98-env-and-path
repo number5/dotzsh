@@ -22,7 +22,7 @@ JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8-openj9.jdk/Contents/H
 # node
 NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules:$HOME/.config/yarn/global/node_modules
 
-path=($HOME/bin $HOME/.local/bin $HOME/.cargo/bin $HOME/.config/yarn/global/node_modules/.bin  $JAVA_HOME/bin /usr/local/lib/ruby/gems/2.5.0/bin /usr/local/bin $GOPATH/bin $HOME/.krew/bin $path)
+path=($HOME/bin $HOME/.local/bin /opt/homebrew/bin /opt/homebrew/sbin $HOME/.cargo/bin $HOME/.config/yarn/global/node_modules/.bin  $JAVA_HOME/bin /usr/local/lib/ruby/gems/2.5.0/bin /usr/local/bin $GOPATH/bin $path)
 
 path=(
     # allow directories only (-/)

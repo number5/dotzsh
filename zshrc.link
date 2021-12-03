@@ -177,3 +177,5 @@ export GOPATH=/Users/bruce.wang/go
 #zprof
 
 source /Users/bruce.wang/.config/broot/launcher/bash/br
+
+alias luamake=/Users/bruce.wang/src/git/lua-language-server/3rd/luamake/luamake
