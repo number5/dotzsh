@@ -1,5 +1,7 @@
 # Mac basic path
 
+export ZDOTDIR=/Users/bruce.wang/.zsh
+
 if [ -x /usr/libexec/path_helper ]; then
     eval `/usr/libexec/path_helper -s`
 fi
