@@ -60,7 +60,6 @@ alias px='ps aux'
 alias mps='ps -ao user,pcpu,start,command'
 
 function of() { lsof -np "$1" }
-compdef _pids of
 
 function psgrep() { ps aux | grep "[${1[1]}]${1[2,-1]}" }
 

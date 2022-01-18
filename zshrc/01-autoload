@@ -5,15 +5,6 @@ autoload zargs
 # allow zwc file recompiling
 autoload -U zrecompile
 
-#fpath+=(~/.zsh/completion)
-#autoload -U complist
-#autoload -Uz compinit
-#if [ $(date +'%j') != $(/usr/bin/stat -f '%Sm' -t '%j' ${ZDOTDIR:-$HOME}/.zcompdump) ]; then
-#    compinit -u
-#else
-#    compinit -C
-#fi
-
 autoload -Uz add-zsh-hook
 
 MAILCHECK=0
