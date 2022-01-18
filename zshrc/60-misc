@@ -1,0 +1,23 @@
+## smart urls
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
+
+## file rename magick
+bindkey "^[m" copy-prev-shell-word
+
+## jobs
+setopt long_list_jobs
+
+## pager
+export PAGER=less
+export LC_CTYPE=$LANG
+
+
+## compl style
+zstyle ':completion:*' menu select=6 
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+
+# vi: ft=zsh

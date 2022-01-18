@@ -1,0 +1,18 @@
+
+DIRSTACKFILE="$HOME/.var/.zdirs"
+if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
+  [[ -d $dirstack[1] ]] && cd $dirstack[1]
+fi
+chpwd() {
+  print -l $PWD ${(u)dirstack} >| $DIRSTACKFILE
+}
+
+DIRSTACKSIZE=12
+
+setopt autopushd pushdsilent pushdtohome
+
+## Remove duplicate entries
+setopt pushdignoredups
+
+# vim: ft=zsh

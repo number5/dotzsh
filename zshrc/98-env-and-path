@@ -1,0 +1,40 @@
+#! /bin/zsh
+
+setopt ALL_EXPORT
+typeset -xU path PATH
+# editor
+EDITOR=nvim
+VISUAL=nvim
+
+# password_store
+PASSWORD_STORE_GPG_OPTS="--homedir /Users/bruce.wang/.pass_gpg"
+PASSWORD_STORE_DEFAULT_SEPARATOR=","
+PASSWORD_STORE_WORD_COUNT="4"
+PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
+GPG_TTY=$(tty)
+
+# aws cli
+AWS_DEFAULT_REGION=us-west-2
+AWS_STS_REGIONAL_ENDPOINTS=regional
+AWS_REGION=us-west-2
+
+# TERM
+TERM=${TERM:-xterm-256color}
+
+JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8-openj9.jdk/Contents/Home
+
+# node
+NODE_PATH=$HOME/.config/yarn/global/node_modules
+
+path=($HOME/bin $HOME/.local/bin $HOME/go/bin /opt/homebrew/bin /opt/homebrew/sbin $HOME/.cargo/bin $HOME/.config/yarn/global/node_modules/.bin  $JAVA_HOME/bin /usr/local/lib/ruby/gems/2.5.0/bin /usr/local/bin $GOPATH/bin $path)
+
+path=(
+    # allow directories only (-/)
+    # reject world-writable directories (^W)
+    ${^path}(N-/^W)
+)
+
+export PATH
+unsetopt ALL_EXPORT
+# vi:ft=zsh

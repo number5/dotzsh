@@ -1,0 +1,8 @@
+export HOMEBREW_GITHUB_API_TOKEN=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
+
+function lb() {
+    vi ~/logbook/$(date '+%Y-%m-%d').md
+}
+
+
+# vi: ft=zsh
