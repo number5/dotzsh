@@ -46,9 +46,7 @@ plugins=(
 
   # ZshZoo plugins
   zshzoo/setopts
-  zshzoo/history
   zshzoo/keybindings
-  zshzoo/zstyle-completions
   zshzoo/macos
   zshzoo/zfishcmds
   zshzoo/termtitle
