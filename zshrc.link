@@ -46,10 +46,10 @@ plugins=(
 
   # ZshZoo plugins
   zshzoo/setopts
-  zshzoo/keybindings
+
   zshzoo/macos
   zshzoo/zfishcmds
-  zshzoo/termtitle
+  #  zshzoo/termtitle
   zshzoo/zfunctions
 
   # 3rd party plugins
@@ -60,13 +60,12 @@ plugins=(
   marzocchi/zsh-notify
   zsh-users/zsh-autosuggestions
   zsh-users/zsh-history-substring-search
-  olets/zsh-abbr
-  rummik/zsh-tailf
   lainiwa/zsh-manydots-magic
 
   # load these last
-  zshzoo/compinit
+  compinit
   zdharma-continuum/fast-syntax-highlighting
+  softmoth/zsh-vim-mode
   zsh-users/zsh-completions
 
 )
@@ -74,15 +73,11 @@ plugins=(
 # load your plugins
 plugin-load $plugins
 
-# vim:ft=zsh
 #
 
 PURE_PROMPT_SYMBOL=λ
 PURE_GIT_PULL=0
 
-
-
-# plugins
 
 
 # fzf
@@ -126,3 +121,5 @@ eval "$(asdf exec direnv hook zsh)"
 source $ZDOTDIR/sourcedir
 
 sourcedir $ZDOTDIR/zshrc
+
+# vim:ft=zsh
