@@ -1,9 +1,3 @@
-# let's use zsh_unplugged to load our plugins
-ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-~/.config/zsh}/plugins}
-[[ -d $ZPLUGINDIR/zsh_unplugged ]] \
-  || git clone https://github.com/mattmc3/zsh_unplugged $ZPLUGINDIR/zsh_unplugged
-source $ZPLUGINDIR/zsh_unplugged/unplugged.zsh
-
 #################################################################
 # PROMPT SETTINGS
 #
@@ -38,45 +32,9 @@ AGKOZAK_BLANK_LINES=1
 AGKOZAK_PROMPT_DIRTRIM=0
 
 
-# make your Zsh plugins list
-plugins=(
-  # load these first
- agkozak/agkozak-zsh-prompt
- romkatv/zsh-defer
+eval "$(sheldon source)"
 
-  # ZshZoo plugins
-  zshzoo/setopts
 
-  zshzoo/macos
-  zshzoo/zfishcmds
-  #  zshzoo/termtitle
-  zshzoo/zfunctions
-
-  # 3rd party plugins
-  Aloxaf/fzf-tab
-  djui/alias-tips
-  chrissicool/zsh-256color
-  paulirish/git-open
-  marzocchi/zsh-notify
-  zsh-users/zsh-autosuggestions
-  zsh-users/zsh-history-substring-search
-  lainiwa/zsh-manydots-magic
-
-  # load these last
-  compinit
-  zdharma-continuum/fast-syntax-highlighting
-  softmoth/zsh-vim-mode
-  zsh-users/zsh-completions
-
-)
-
-# load your plugins
-plugin-load $plugins
-
-#
-
-PURE_PROMPT_SYMBOL=λ
-PURE_GIT_PULL=0
 
 
 
