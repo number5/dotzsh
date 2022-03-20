@@ -1,10 +1,3 @@
-#################################################################
-# PROMPT SETTINGS
-#
-# This settings are applied immidiately (because we need to show
-# prompt as fast as possible), so the plugins are being loaded
-# eagerly.
-#
 
 # Python virtual environment name
 #AGKOZAK_CUSTOM_PROMPT='%(10V.%B%F{green}(%10v)%f%b.)'
@@ -15,27 +8,24 @@
 # Prompt character
 #AGKOZAK_CUSTOM_PROMPT+='%B%F{red}%(4V.:.%#)%f%b '
 # Git status
-AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
-AGKOZAK_CUSTOM_RPROMPT='%(3V#%F{yellow}($prompt_git_tag %7v)%f#)'
-#AGKOZAK_CUSTOM_RPROMPT='%(3V.%F{yellow}%3v%f.)'
-# Exit status
-AGKOZAK_CUSTOM_RPROMPT+=' %(?..%B%F{red}(%?%)%f%b)'
-# Execution time
-AGKOZAK_CMD_EXEC_TIME=1
-AGKOZAK_CUSTOM_RPROMPT+=' %B%F{green}%9v%f%b'
-# Display the time
-AGKOZAK_CUSTOM_RPROMPT+=' %F{033}%*'
-AGKOZAK_PROMPT_CHAR=( λ λ ❮ )
-AGKOZAK_COLORS_PROMPT_CHAR='magenta'
-AGKOZAK_USER_HOST_DISPLAY=0
-AGKOZAK_BLANK_LINES=1
-AGKOZAK_PROMPT_DIRTRIM=0
+#AGKOZAK_CUSTOM_SYMBOLS=( '⇣⇡' '⇣' '⇡' '+' 'x' '!' '>' '?' 'S')
+#AGKOZAK_CUSTOM_RPROMPT='%(3V#%F{yellow}($prompt_git_tag %7v)%f#)'
+##AGKOZAK_CUSTOM_RPROMPT='%(3V.%F{yellow}%3v%f.)'
+## Exit status
+#AGKOZAK_CUSTOM_RPROMPT+=' %(?..%B%F{red}(%?%)%f%b)'
+## Execution time
+#AGKOZAK_CMD_EXEC_TIME=1
+#AGKOZAK_CUSTOM_RPROMPT+=' %B%F{green}%9v%f%b'
+## Display the time
+#AGKOZAK_CUSTOM_RPROMPT+=' %F{033}%*'
+#AGKOZAK_PROMPT_CHAR=( λ λ ❮ )
+#AGKOZAK_COLORS_PROMPT_CHAR='magenta'
+#AGKOZAK_USER_HOST_DISPLAY=0
+#AGKOZAK_BLANK_LINES=1
+#AGKOZAK_PROMPT_DIRTRIM=0
 
 
 eval "$(sheldon source)"
-
-
-
 
 
 # fzf
@@ -80,4 +70,5 @@ source $ZDOTDIR/sourcedir
 
 sourcedir $ZDOTDIR/zshrc
 
+eval "$(starship init zsh)"
 # vim:ft=zsh

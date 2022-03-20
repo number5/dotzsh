@@ -3,9 +3,9 @@ autoload colors
 autoload zmv
 autoload zargs
 # allow zwc file recompiling
-autoload -U zrecompile
+#autoload -U zrecompile
 
-autoload -Uz add-zsh-hook
+#autoload -Uz add-zsh-hook
 
 MAILCHECK=0
 # vim:ft=zsh
