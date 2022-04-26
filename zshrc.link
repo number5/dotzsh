@@ -1,7 +1,5 @@
 
-
 eval "$(sheldon source)"
-
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
@@ -36,8 +34,8 @@ source /Users/bruce.wang/.config/broot/launcher/bash/br
 
 alias luamake=/Users/bruce.wang/src/git/lua-language-server/3rd/luamake/luamake
 
-# direnv
-eval "$(asdf exec direnv hook zsh)"
+# asdf-direnv
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 source $ZDOTDIR/sourcedir
 

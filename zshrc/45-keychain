@@ -1,2 +1,2 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 eval `keychain --eval --quiet --inherit any -Q id_rsa id_ed25519_20210506 id_ed25519`
