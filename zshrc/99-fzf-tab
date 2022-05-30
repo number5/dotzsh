@@ -4,6 +4,9 @@ my-fzf-tab() {
   zle fzf-tab-complete
 }
 zle -N my-fzf-tab
-bindkey "^I" my-fzf-tab
+add-zsh-hook precmd bind-tab
+bind-tab() {
+  bindkey "^I" my-fzf-tab
+}
 
 

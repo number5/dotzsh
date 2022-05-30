@@ -1,3 +1,5 @@
+zstyle ':autocomplete:*' widget-style menu-complete
+zstyle ':autocomplete:*' fzf-completion yes
 
 eval "$(sheldon source)"
 

@@ -1,0 +1,93 @@
+version = "0.6.6"
+home = "/Users/bruce.wang"
+config_dir = "/Users/bruce.wang/.sheldon"
+data_dir = "/Users/bruce.wang/.sheldon"
+config_file = "/Users/bruce.wang/.sheldon/plugins.toml"
+lock_file = "/Users/bruce.wang/.sheldon/plugins.lock"
+clone_dir = "/Users/bruce.wang/.sheldon/repos"
+download_dir = "/Users/bruce.wang/.sheldon/downloads"
+
+[[plugins]]
+name = "zsh-defer"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/romkatv/zsh-defer"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/romkatv/zsh-defer/zsh-defer.plugin.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "zsh-completions"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/zsh-users/zsh-completions"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/zsh-users/zsh-completions/zsh-completions.plugin.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "alias-tips"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/djui/alias-tips"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/djui/alias-tips/alias-tips.plugin.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "zsh-256color"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/chrissicool/zsh-256color"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/chrissicool/zsh-256color/zsh-256color.plugin.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "git-open"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/paulirish/git-open"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/paulirish/git-open/git-open.plugin.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "substring-search"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/zsh-users/zsh-history-substring-search"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/zsh-users/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "zsh-autosuggestions"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/zsh-users/zsh-autosuggestions"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "fast-syntax-highlighting"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/zdharma-continuum/fast-syntax-highlighting"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"]
+apply = ["defer"]
+
+[[plugins]]
+name = "autocomplete"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/marlonrichert/zsh-autocomplete"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "fzf-tab"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/Aloxaf/fzf-tab"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/Aloxaf/fzf-tab/fzf-tab.plugin.zsh"]
+apply = ["source"]
+
+[[plugins]]
+name = "zsh-vim-mode"
+source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/softmoth/zsh-vim-mode"
+files = ["/Users/bruce.wang/.sheldon/repos/github.com/softmoth/zsh-vim-mode/zsh-vim-mode.plugin.zsh"]
+apply = ["source"]
+[templates.PATH]
+value = "export PATH=\"{{ dir }}:$PATH\""
+each = false
+
+[templates.path]
+value = "path=( \"{{ dir }}\" $path )"
+each = false
+
+[templates.fpath]
+value = "fpath=( \"{{ dir }}\" $fpath )"
+each = false
+
+[templates.source]
+value = "source \"{{ file }}\""
+each = true
+
+[templates.defer]
+value = "zsh-defer source \"{{ file }}\""
+each = true

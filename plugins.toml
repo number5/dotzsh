@@ -1,0 +1,68 @@
+# `sheldon` configuration file
+# ----------------------------
+
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+shell = "zsh"
+
+[templates]
+defer = { value = 'zsh-defer source "{{ file }}"', each = true }
+
+[plugins]
+
+# For example:
+#
+# [plugins.base16]
+# github = "chriskempson/base16-shell"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+## ZshZoo plugins
+#[plugins.macos]
+#github = "zshzoo/macos"
+#
+#[plugins.zfunctions]
+#github = "zshzoo/zfunctions"
+
+# 3rd party plugins
+#[plugins.compinit]
+#local = "~/.zsh/local/compinit"
+#apply = ["defer"]
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.alias-tips]
+github = "djui/alias-tips"
+
+[plugins.zsh-256color]
+github = "chrissicool/zsh-256color"
+
+[plugins.git-open]
+github = "paulirish/git-open"
+
+#[plugins.zsh-manydots-magic]
+#github = "twang817/zsh-manydots-magic"
+
+# load these at the end
+[plugins.substring-search]
+github = "zsh-users/zsh-history-substring-search"
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+apply = ["defer"]
+
+[plugins.autocomplete]
+github = "marlonrichert/zsh-autocomplete"
+
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+
+[plugins.zsh-vim-mode]
+github =  "softmoth/zsh-vim-mode"
+
