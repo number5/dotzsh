@@ -22,8 +22,6 @@ AWS_REGION=us-west-2
 # TERM
 TERM=${TERM:-xterm-256color}
 
-JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8-openj9.jdk/Contents/Home
-
 # node
 NODE_PATH=$HOME/.config/yarn/global/node_modules
 

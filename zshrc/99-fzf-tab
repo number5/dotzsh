@@ -1,0 +1,9 @@
+#! /usr/bin/env zsh
+my-fzf-tab() {
+  functions[compadd]=$functions[-ftb-compadd]
+  zle fzf-tab-complete
+}
+zle -N my-fzf-tab
+bindkey "^I" my-fzf-tab
+
+
