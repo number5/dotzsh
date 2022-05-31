@@ -14,6 +14,12 @@ files = ["/Users/bruce.wang/.sheldon/repos/github.com/romkatv/zsh-defer/zsh-defe
 apply = ["source"]
 
 [[plugins]]
+name = "compinit"
+source_dir = "/Users/bruce.wang/.zsh/local/compinit"
+files = ["/Users/bruce.wang/.zsh/local/compinit/compinit.plugin.zsh"]
+apply = ["defer"]
+
+[[plugins]]
 name = "zsh-completions"
 source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/zsh-users/zsh-completions"
 files = ["/Users/bruce.wang/.sheldon/repos/github.com/zsh-users/zsh-completions/zsh-completions.plugin.zsh"]
@@ -54,18 +60,6 @@ name = "fast-syntax-highlighting"
 source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/zdharma-continuum/fast-syntax-highlighting"
 files = ["/Users/bruce.wang/.sheldon/repos/github.com/zdharma-continuum/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"]
 apply = ["defer"]
-
-[[plugins]]
-name = "autocomplete"
-source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/marlonrichert/zsh-autocomplete"
-files = ["/Users/bruce.wang/.sheldon/repos/github.com/marlonrichert/zsh-autocomplete/zsh-autocomplete.plugin.zsh"]
-apply = ["source"]
-
-[[plugins]]
-name = "fzf-tab"
-source_dir = "/Users/bruce.wang/.sheldon/repos/github.com/Aloxaf/fzf-tab"
-files = ["/Users/bruce.wang/.sheldon/repos/github.com/Aloxaf/fzf-tab/fzf-tab.plugin.zsh"]
-apply = ["source"]
 
 [[plugins]]
 name = "zsh-vim-mode"

@@ -26,9 +26,9 @@ github = "romkatv/zsh-defer"
 #github = "zshzoo/zfunctions"
 
 # 3rd party plugins
-#[plugins.compinit]
-#local = "~/.zsh/local/compinit"
-#apply = ["defer"]
+[plugins.compinit]
+local = "~/.zsh/local/compinit"
+apply = ["defer"]
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
@@ -57,11 +57,11 @@ use = ["{{ name }}.zsh"]
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
 
-[plugins.autocomplete]
-github = "marlonrichert/zsh-autocomplete"
+#[plugins.autocomplete]
+#github = "marlonrichert/zsh-autocomplete"
 
-[plugins.fzf-tab]
-github = "Aloxaf/fzf-tab"
+#[plugins.fzf-tab]
+#github = "Aloxaf/fzf-tab"
 
 [plugins.zsh-vim-mode]
 github =  "softmoth/zsh-vim-mode"

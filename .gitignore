@@ -1,3 +1,4 @@
 plugins
 .zsh_history
 cache
+.zcompdump
