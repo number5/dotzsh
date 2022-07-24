@@ -2,3 +2,4 @@ plugins
 .zsh_history
 cache
 .zcompdump
+zshrc/96-local
