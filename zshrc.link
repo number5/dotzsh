@@ -24,14 +24,12 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export GOPATH=/Users/bruce.wang/go
+# export GOPATH=/Users/bruce.wang/go
 
 source /Users/bruce.wang/.config/broot/launcher/bash/br
 
 alias luamake=/Users/bruce.wang/src/git/lua-language-server/3rd/luamake/luamake
 
-# asdf-direnv
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 source $ZDOTDIR/sourcedir
 
@@ -43,5 +41,8 @@ eval "$(starship init zsh)"
 # profiling zsh startup
 #zprof
 
+
+# asdf-direnv
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 # vim:ft=zsh
