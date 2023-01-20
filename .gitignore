@@ -3,3 +3,4 @@ plugins
 cache
 .zcompdump
 zshrc/96-local
+.zcompcache
