@@ -31,9 +31,9 @@ source /Users/bruce.wang/.config/broot/launcher/bash/br
 alias luamake=/Users/bruce.wang/src/git/lua-language-server/3rd/luamake/luamake
 
 
-source $ZDOTDIR/sourcedir
+source "$ZDOTDIR/sourcedir"
 
-sourcedir $ZDOTDIR/zshrc
+sourcedir "$ZDOTDIR/zshrc"
 
 # Starship prompt
 eval "$(starship init zsh)"
