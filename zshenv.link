@@ -69,3 +69,5 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+SHELL_SESSIONS_DISABLE=1
+

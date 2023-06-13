@@ -5,15 +5,9 @@
 # terraform
 alias tplan='terraform plan -refresh -out=plan.b'
 
+alias ae='asdf exec'
 
-alias j=jrnl
-alias jn='jrnl -n 7'
-
-# virtualenv/ venv
-alias va='. venv/bin/activate'
-alias pi='./venv/bin/pip'
-
-alias gc='git gc'
+alias gc='git gc --prune=now'
 alias gbm='git branch --merged'
 alias gfc='git fetch origin'
 alias gpull='git pull --rebase'
@@ -37,8 +31,6 @@ alias cp='nocorrect cp'
 alias ln='nocorrect ln'
 alias mkdir='nocorrect mkdir'
 alias rm='nocorrect rm'
-alias find='noglob find'
-alias w3m='noglob w3m -no-mouse'
 alias wget='noglob wget'
 alias curl='noglob curl'
 alias locate='noglob locate'
@@ -59,9 +51,13 @@ alias sensible-pager='less'
 alias px='ps aux'
 alias mps='ps -ao user,pcpu,start,command'
 
-function of() { lsof -np "$1" }
+function of() {
+  lsof -np "$1" 
+}
 
-function psgrep() { ps aux | grep "[${1[1]}]${1[2,-1]}" }
+function psgrep() {
+  ps aux | grep "[${1[1]}]${1[2,-1]}" 
+}
 
 
 #
@@ -70,7 +66,7 @@ function psgrep() { ps aux | grep "[${1[1]}]${1[2,-1]}" }
 #
 function current_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo ${ref#refs/heads/}
+  echo "${ref#refs/heads/}"
 }
 
 # these aliases take advantage of the previous function
