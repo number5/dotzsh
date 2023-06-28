@@ -10,7 +10,8 @@ alias ae='asdf exec'
 alias gc='git gc --prune=now'
 alias gbm='git branch --merged'
 alias gfc='git fetch origin'
-alias gpull='git pull --rebase'
+alias gpull='git pull --rebase --prune'
+alias gclone='git clone --filter=blob:none'
 alias gds="git diff --stat"
 alias gl="git log --graph --pretty=format:'%C(magenta)%h%Creset %w(72,1,2)%Cgreen(%cr) -%C(bold green)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 alias gt='git log --tags --decorate --simplify-by-decoration --oneline'
