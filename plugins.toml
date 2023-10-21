@@ -26,10 +26,6 @@ github = "romkatv/zsh-defer"
 #github = "zshzoo/zfunctions"
 
 # 3rd party plugins
-[plugins.compinit]
-local = "~/.zsh/local/compinit"
-apply = ["defer"]
-
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 
@@ -52,6 +48,10 @@ github = "zsh-users/zsh-history-substring-search"
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 use = ["{{ name }}.zsh"]
+
+[plugins.zimcomp]
+github = "zimfw/completion"
+apply = ["defer"]
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"

@@ -37,15 +37,15 @@ alias curl='noglob curl'
 alias locate='noglob locate'
 
 # ls
-alias ls='exa --group-directories-first --classify --git'
+alias ls='eza --group-directories-first --classify --git'
 alias l='ls'
 alias ll='ls -l'
 alias lll='ls -l | less'
 alias lla='ls -la'
 alias lrt='ls -ls modified'
 alias llt='ls -T'
-alias llfu='exa -bghHliS --git'
-alias tree='exa -T'
+alias llfu='eza -bghHliS --git'
+alias tree='eza -T'
 
 alias sensible-pager='less'
 
