@@ -38,16 +38,20 @@ sourcedir "$ZDOTDIR/zshrc"
 # Starship prompt
 eval "$(starship init zsh)"
 
-# profiling zsh startup
-#zprof
-
 
 # asdf-direnv
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
-# vim:ft=zsh
 
 # pnpm
 export PNPM_HOME="/Users/bruce.wang/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; 
+then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+# vim:ft=zsh

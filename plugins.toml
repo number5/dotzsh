@@ -10,20 +10,8 @@ defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
 [plugins]
 
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
-
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
-
-## ZshZoo plugins
-#[plugins.macos]
-#github = "zshzoo/macos"
-#
-#[plugins.zfunctions]
-#github = "zshzoo/zfunctions"
 
 # 3rd party plugins
 [plugins.zsh-completions]
@@ -37,9 +25,6 @@ github = "chrissicool/zsh-256color"
 
 [plugins.git-open]
 github = "paulirish/git-open"
-
-#[plugins.zsh-manydots-magic]
-#github = "twang817/zsh-manydots-magic"
 
 # load these at the end
 [plugins.substring-search]
@@ -56,9 +41,6 @@ apply = ["defer"]
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
-
-#[plugins.autocomplete]
-#github = "marlonrichert/zsh-autocomplete"
 
 #[plugins.fzf-tab]
 #github = "Aloxaf/fzf-tab"
