@@ -1,0 +1,125 @@
+format = """
+$username\
+$hostname\
+$directory\
+$aws\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$nodejs\
+$character"""
+
+right_format = """
+$duration\
+$shlvl\
+$status\
+$time"""
+
+[time]
+disabled = false
+format = '[ $time ](fg:33) '
+
+[directory]
+style = "blue"
+read_only = " 󰌾"
+
+[character]
+success_symbol = "[λ](purple)"
+error_symbol = "[λ](red)"
+vicmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+style = "bright-black"
+symbol = " "
+
+[git_commit]
+tag_disabled = false
+format = "[$hash$tag]($style) "
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+show_notifications = true
+
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
+
+[aws]
+format = '[$symbol($profile )(\($region\) )]($style)'
+style = "bold blue"
+symbol = "  "
+[aws.region_aliases]
+ap-southeast-2 = "apse2"
+us-west-2 = "usw2"
+
+[status]
+format = '[$symbol $common_meaning$signal_name$maybe_int]($style) '
+map_symbol = true
+disabled = false
+
+[shlvl]
+style = "cyan"
+disabled = false
+format = "SHLVL=$shlvl "
+threshold = 3
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = "󰏗 "
+
+[rust]
+symbol = " "
+
