@@ -26,6 +26,9 @@ github = "chrissicool/zsh-256color"
 [plugins.git-open]
 github = "paulirish/git-open"
 
+[plugins.no-ps2]
+github = "romkatv/zsh-no-ps2"
+
 # load these at the end
 [plugins.substring-search]
 github = "zsh-users/zsh-history-substring-search"
