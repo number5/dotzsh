@@ -63,6 +63,7 @@ style = "bright-black"
 format = '[$symbol($profile )(\($region\) )]($style)'
 style = "bold blue"
 symbol = "  "
+
 [aws.region_aliases]
 ap-southeast-2 = "apse2"
 us-west-2 = "usw2"
