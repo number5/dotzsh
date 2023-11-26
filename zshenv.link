@@ -39,16 +39,20 @@ fi
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 # Set the the list of directories that cd searches.
 # cdpath=(
 #   $cdpath
 # )
 
+# set fpath
+fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+
 # Set the list of directories that Zsh searches for programs.
-path=(
-  $path
-  /opt/homebrew/{bin,sbin}
-)
+#path=(
+#  $path
+#  $(brew --prefix)/{bin,sbin}
+#)
 
 #
 # Less
