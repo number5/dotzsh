@@ -16,16 +16,5 @@ function remote {
     ssh -At "$@" 'tmux atta -t bruce || tmux new -s bruce'
 }
 
-function vi {
-    echo -e "\033]50;SetProfile=neovim\a"
-    nvim $@
-    echo -e "\033]50;SetProfile=Default\a"
-}
-
-alias vim=nvim
-
-function clear_badge {
-    printf "\e]1337;SetBadgeFormat=%s\a" $(echo 'λ' |base64)
-}
 
 # vi:ft=zsh

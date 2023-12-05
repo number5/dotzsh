@@ -1,8 +1,7 @@
 
-# ip on mac (use iproute2mac instead)
-#alias ip="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | awk '{print \$2}'"
+alias vi=nvim
+alias vim=nvim
 
-# terraform
 alias tplan='terraform plan -refresh -out=plan.b'
 
 alias ae='asdf exec'
