@@ -46,7 +46,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # )
 
 # set fpath
-fpath=("$(brew --prefix)/share/zsh/site-functions" $fpath)
+fpath=(
+  "$(brew --prefix)/share/zsh/site-functions"
+  $fpath
+   "$HOME/.nix-profile/share/zsh/site-functions"
+ )
 
 # Set the list of directories that Zsh searches for programs.
 #path=(

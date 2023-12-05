@@ -1,7 +1,7 @@
 #! /bin/zsh
 
 setopt ALL_EXPORT
-typeset -xU path PATH
+typeset -xU path PATH 
 # editor
 EDITOR=nvim
 VISUAL=nvim
@@ -12,7 +12,7 @@ PASSWORD_STORE_DEFAULT_SEPARATOR=","
 PASSWORD_STORE_WORD_COUNT="4"
 PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
-GPG_TTY=$(tty)
+# GPG_TTY=$(tty)
 
 # aws cli
 AWS_DEFAULT_REGION=us-west-2
@@ -25,7 +25,19 @@ TERM=${TERM:-xterm-256color}
 # node
 NODE_PATH=$HOME/.config/yarn/global/node_modules
 
-path=($HOME/.local/share/nvim/mason/bin $HOME/.asdf/bin $HOME/.arkade/bin/ $HOME/.rd/bin $HOME/bin $HOME/.local/bin $HOME/go/bin /opt/homebrew/bin /opt/homebrew/sbin $HOME/.cargo/bin $HOME/.config/yarn/global/node_modules/.bin  $JAVA_HOME/bin $GOPATH/bin $path)
+path=(
+  /opt/homebrew/opt/coreutils/libexec/gnubin
+  $HOME/.local/share/nvim/mason/bin
+  $HOME/.asdf/bin
+  $HOME/.arkade/bin/
+  $HOME/.rd/bin
+  $HOME/bin
+  $HOME/.local/bin
+  $HOME/go/bin
+  $HOME/.cargo/bin
+  $HOME/.config/yarn/global/node_modules/.bin
+  $path
+)
 
 path=(
     # allow directories only (-/)
