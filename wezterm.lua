@@ -16,8 +16,8 @@ config.color_scheme = "Catppuccin Macchiato"
 config.font_size = 19.0
 
 config.font = wezterm.font_with_fallback({
-	{ family = "Iosevka Term Slab", stretch = "Expanded", weight = "ExtraLight" },
 	"JetBrains Mono",
+	{ family = "Iosevka Term Slab", stretch = "Expanded", weight = "ExtraLight" },
 	"Noto Color Emoji",
 })
 

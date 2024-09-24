@@ -1,4 +1,8 @@
 
+# Devbox
+alias dsu='devbox services up'
+alias db=devbox
+
 alias vi=nvim
 alias vim=nvim
 
@@ -16,7 +20,6 @@ alias gl="git log --graph --pretty=format:'%C(magenta)%h%Creset %w(72,1,2)%Cgree
 alias gt='git log --tags --decorate --simplify-by-decoration --oneline'
 alias gr='git remote -v'
 alias s="git status --short"
-alias ss="s"  # because bad mbp keyboard
 alias gs="git status"
 
 
@@ -50,6 +53,8 @@ alias sensible-pager='less'
 
 alias px='ps aux'
 alias mps='ps -ao user,pcpu,start,command'
+# list all listening ports
+alias lports='lsof -nP -iTCP -sTCP:LISTEN'
 
 function of() {
   lsof -np "$1" 
@@ -78,11 +83,11 @@ alias d='dig +short'
 alias cat='bat'
 alias less='bat'
 
-alias k='kubectl'
-alias kk='kubectl'
-alias kd='kubectl describe'
-alias kn='kubens'
-alias kx='kubectx'
+# alias k='kubectl'
+# alias kk='kubectl'
+# alias kd='kubectl describe'
+# alias kn='kubens'
+# alias kx='kubectx'
 
 alias tf='terraform'
 # vim:ft=zsh

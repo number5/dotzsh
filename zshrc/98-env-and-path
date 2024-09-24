@@ -36,6 +36,8 @@ path=(
   $HOME/go/bin
   $HOME/.cargo/bin
   $HOME/.config/yarn/global/node_modules/.bin
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
   $path
 )
 
