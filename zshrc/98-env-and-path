@@ -28,7 +28,6 @@ NODE_PATH=$HOME/.config/yarn/global/node_modules
 path=(
   /opt/homebrew/opt/coreutils/libexec/gnubin
   $HOME/.local/share/nvim/mason/bin
-  $HOME/.asdf/bin
   $HOME/.arkade/bin/
   $HOME/.rd/bin
   $HOME/bin

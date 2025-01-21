@@ -55,4 +55,5 @@ fi
 
 
 # The next line was added by hotel, leave it at the bottom of this file
-source /Users/bruce.wang/.config/hotel/config.zsh
+#source /Users/bruce.wang/.config/hotel/config.zsh
+source "$ZDOTDIR/hotel.zsh"

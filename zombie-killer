@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Get list of zombie processes and their parent process IDs
+zombie_procs=$(ps -axo stat,ppid,pid,command | awk '/^Z/ {print $2, $3}')
+
+# Loop through zombie processes and kill their parents
+while read -r parent_pid zombie_pid; do
+  if ps -p "$parent_pid" > /dev/null; then
+    echo "Killing parent process $parent_pid of zombie $zombie_pid"
+    kill -TERM "$parent_pid"
+  fi
+done <<< "$zombie_procs"
+

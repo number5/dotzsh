@@ -1,0 +1,5 @@
+export NIX_SSL_CERT_FILE='/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem'
+export REQUESTS_CA_BUNDLE='/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem'
+export GRPC_DEFAULT_SSL_ROOTS_FILE_PATH='/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem'
+export SSL_CERT_FILE='/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem'
+export DIRENV_WARN_TIMEOUT='1h'
