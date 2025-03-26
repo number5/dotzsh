@@ -24,9 +24,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /Users/bruce.wang/.config/broot/launcher/bash/br
-
-alias luamake=/Users/bruce.wang/src/git/lua-language-server/3rd/luamake/luamake
 
 
 source "$ZDOTDIR/sourcedir"
@@ -42,18 +39,7 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 
 # pnpm
-export PNPM_HOME="/Users/bruce.wang/Library/pnpm"
+export PNPM_HOME="/home/bruce/pnpm"
 # pnpm end
 
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; 
-then
-  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
-
 # vim:ft=zsh
-
-
-# The next line was added by hotel, leave it at the bottom of this file
-#source /Users/bruce.wang/.config/hotel/config.zsh
-source "$ZDOTDIR/hotel.zsh"

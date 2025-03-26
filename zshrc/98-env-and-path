@@ -7,7 +7,7 @@ EDITOR=nvim
 VISUAL=nvim
 
 # password_store
-PASSWORD_STORE_GPG_OPTS="--homedir /Users/bruce.wang/.pass_gpg"
+PASSWORD_STORE_GPG_OPTS="--homedir /home/bruce/.pass_gpg"
 PASSWORD_STORE_DEFAULT_SEPARATOR=","
 PASSWORD_STORE_WORD_COUNT="4"
 PASSWORD_STORE_ENABLE_EXTENSIONS=true
@@ -22,21 +22,14 @@ AWS_REGION=us-west-2
 # TERM
 TERM=${TERM:-xterm-256color}
 
-# node
-NODE_PATH=$HOME/.config/yarn/global/node_modules
-
 path=(
   /opt/homebrew/opt/coreutils/libexec/gnubin
   $HOME/.local/share/nvim/mason/bin
   $HOME/.arkade/bin/
-  $HOME/.rd/bin
   $HOME/bin
   $HOME/.local/bin
   $HOME/go/bin
   $HOME/.cargo/bin
-  $HOME/.config/yarn/global/node_modules/.bin
-  /opt/homebrew/bin
-  /opt/homebrew/sbin
   $path
 )
 
