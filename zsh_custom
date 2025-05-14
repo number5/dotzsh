@@ -1,5 +1,3 @@
-eval "$(sheldon source)"
-
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type f'
 # Options to fzf command
@@ -38,8 +36,5 @@ eval "$(starship init zsh)"
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 
-# pnpm
-export PNPM_HOME="/home/bruce/pnpm"
-# pnpm end
 
 # vim:ft=zsh
