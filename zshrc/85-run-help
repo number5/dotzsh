@@ -1,7 +1,0 @@
-# unalias run-help &> /dev/null
-
-autoload -U run-help
-autoload run-help-git
-export HELPDIR=/opt/homebrew/share/zsh/help/
-
-alias zman=run-help

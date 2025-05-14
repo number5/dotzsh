@@ -23,9 +23,7 @@ AWS_REGION=us-west-2
 TERM=${TERM:-xterm-256color}
 
 path=(
-  /opt/homebrew/opt/coreutils/libexec/gnubin
   $HOME/.local/share/nvim/mason/bin
-  $HOME/.arkade/bin/
   $HOME/bin
   $HOME/.local/bin
   $HOME/go/bin

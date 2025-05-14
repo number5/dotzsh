@@ -5,3 +5,4 @@ cache
 zshrc/96-local
 .zcompcache
 .zcompdump.*
+.zshrc
